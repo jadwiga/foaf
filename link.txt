@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<response>
+<extractors>
+<extractor>rdf-xml</extractor>
+</extractors>
+<report>
+<message/>
+<error/>
+<issueReport>
+</issueReport>
+<validationReport>
+<issues>
+</issues>
+<ruleActivations>
+</ruleActivations>
+<errors>
+</errors>
+</validationReport>
+</report>
+<data>
+<![CDATA[
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix admin: <http://webns.net/mvcb/> .
+
+<https://raw.githubusercontent.com/jadwiga/foaf/master/foaf.rdf> a foaf:PersonalProfileDocument;
+  foaf:maker <https://raw.githubusercontent.com/jadwiga/foaf/master/foaf.rdf#me>;
+  foaf:primaryTopic <https://raw.githubusercontent.com/jadwiga/foaf/master/foaf.rdf#me>;
+  admin:generatorAgent <http://www.ldodds.com/foaf/foaf-a-matic>;
+  admin:errorReportsTo <mailto:leigh@ldodds.com> .
+
+<https://raw.githubusercontent.com/jadwiga/foaf/master/foaf.rdf#me> a foaf:Person;
+  foaf:name "Jan Nowak";
+  foaf:title "Mr";
+  foaf:givenname "Jan";
+  foaf:family_name "Nowak";
+  foaf:nick "janek";
+  foaf:mbox_sha1sum "125829089a4f18b4a3cbcadf3755a10bb1cfe7ff";
+  foaf:phone <tel:555666777>;
+  foaf:schoolHomepage <https://ai.ia.agh.edu.pl/wiki/> .
+]]>
+</data>
+</response>
