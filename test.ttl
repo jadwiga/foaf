@@ -1,0 +1,70 @@
+BASE   <http://test_jk/b-and-b/>
+
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/>.
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix fhkb: <http://www.example.com/genealogy.owl#> .
+
+<rdf:Bag>
+	<rdf:li><Eric> ;
+	<rdf:li><Stephanie> ;
+	<rdf:li><Ridge> ;
+	<rdf:li><Thorn> ;
+	<rdf:li><Brook> ;
+</rdf:Bag> .
+
+<rdf:List>
+	<rdf:li><Eric> ;
+	<rdf:li><Ridge> ;
+	<rdf:li><Thorn> ;
+</rdf:List> .
+
+<Women> rdf:type rdfs:Class ;
+	    rdfs:subClassOf foaf:Person .
+
+<Men> rdf:type rdfs:Class ;
+	  rdfs:subClassOf foaf:Person .
+
+<Stephanie> a <Women> .
+<Thorn> a <Men> .
+<Ridge> a <Men> .
+<Brook> a <Women> .
+<Eric> a <Men> .
+
+<Stephanie> <has_sex> "woman"^^xsd:string ;
+		    fhkb:isMotherOf <Thorn> ,
+					        <Ridge> ;
+		    fhkb:hasHusband <Eric> ;
+		    dcterms:title "boss".
+		   
+<Thorn> fhkb:hasWife <Brook> ;
+        fhkb:isBrotherOf <Ridge> ;
+	    <is_years_old> "40"^^xsd:integer ;
+		foaf:phone "777666888"^^xsd:integer .
+
+<Ridge> <has_sex> "man"^^xsd:string ;
+	    dc:date "1960-05-01"^^xsd:date ;
+		rdfs:seeAlso "https://pl.wikipedia.org/wiki/Ridge_Forrester"^^xsd:anyURI .
+
+<Brook> fhkb:hasRelation <Eric> ;
+        fhkb:hasHusband <Ridge> ;
+	    foaf:knows <Stephanie> ;
+		rdfs:label "aaa"^^xsd:string ;
+		rdfs:comment "has a lot of husbands :)"^^xsd:string .
+	   
+<Eric> fhkb:isFatherOf <Thorn> ;
+	   <has_sex> "man"^^xsd:string ;
+	   foaf:profession "designer"^^xsd:string ;
+	   rdfs:isDefinedBy "https://en.wikipedia.org/wiki/Eric_Forrester"^^xsd:anyURI .
+	   
+<has_sex> rdf:type rdfs:Property ;
+		  rdfs:domain foaf:person ;
+		  rdfs:range rdfs:Literal .
+	
+<is_years_old> rdf:type rdfs:Property ;
+			   rdfs:subPropertyOf foaf:age ;
+		       rdfs:domain foaf:Agent ;
+		       rdfs:range rdfs:Literal .
