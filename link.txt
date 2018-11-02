@@ -1,44 +1,106 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<response>
-<extractors>
-<extractor>rdf-xml</extractor>
-</extractors>
-<report>
-<message/>
-<error/>
-<issueReport>
-</issueReport>
-<validationReport>
-<issues>
-</issues>
-<ruleActivations>
-</ruleActivations>
-<errors>
-</errors>
-</validationReport>
-</report>
-<data>
-<![CDATA[
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix admin: <http://webns.net/mvcb/> .
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:dcterms="http://purl.org/dc/terms/"
+	xmlns:foaf="http://xmlns.com/foaf/0.1/"
+	xmlns:fhkb="http://www.example.com/genealogy.owl#">
 
-<https://raw.githubusercontent.com/jadwiga/foaf/master/foaf.rdf> a foaf:PersonalProfileDocument;
-  foaf:maker <https://raw.githubusercontent.com/jadwiga/foaf/master/foaf.rdf#me>;
-  foaf:primaryTopic <https://raw.githubusercontent.com/jadwiga/foaf/master/foaf.rdf#me>;
-  admin:generatorAgent <http://www.ldodds.com/foaf/foaf-a-matic>;
-  admin:errorReportsTo <mailto:leigh@ldodds.com> .
+<rdf:Description rdf:about="rdf:Bag">
+	<li xmlns="rdf:" rdf:resource="http://test_jk/b-and-b/Eric"/>
+	<li xmlns="rdf:" rdf:resource="http://test_jk/b-and-b/Stephanie"/>
+	<li xmlns="rdf:" rdf:resource="http://test_jk/b-and-b/Ridge"/>
+	<li xmlns="rdf:" rdf:resource="http://test_jk/b-and-b/Thorn"/>
+	<li xmlns="rdf:" rdf:resource="http://test_jk/b-and-b/Brook"/>
+	<Bag xmlns="http://test_jk/rdf:" rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"></Bag>
+</rdf:Description>
 
-<https://raw.githubusercontent.com/jadwiga/foaf/master/foaf.rdf#me> a foaf:Person;
-  foaf:name "Jan Nowak";
-  foaf:title "Mr";
-  foaf:givenname "Jan";
-  foaf:family_name "Nowak";
-  foaf:nick "janek";
-  foaf:mbox_sha1sum "125829089a4f18b4a3cbcadf3755a10bb1cfe7ff";
-  foaf:phone <tel:555666777>;
-  foaf:schoolHomepage <https://ai.ia.agh.edu.pl/wiki/> .
-]]>
-</data>
-</response>
+<rdf:Description rdf:about="rdf:List">
+	<li xmlns="rdf:" rdf:resource="http://test_jk/b-and-b/Eric"/>
+	<li xmlns="rdf:" rdf:resource="http://test_jk/b-and-b/Ridge"/>
+	<li xmlns="rdf:" rdf:resource="http://test_jk/b-and-b/Thorn"/>
+	<List xmlns="http://test_jk/rdf:" rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"></List>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://test_jk/b-and-b/Women">
+	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+	<rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://test_jk/b-and-b/Men">
+	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+	<rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://test_jk/b-and-b/Stephanie">
+	<rdf:type rdf:resource="http://test_jk/b-and-b/Women"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://test_jk/b-and-b/Thorn">
+	<rdf:type rdf:resource="http://test_jk/b-and-b/Men"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://test_jk/b-and-b/Ridge">
+	<rdf:type rdf:resource="http://test_jk/b-and-b/Men"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://test_jk/b-and-b/Brook">
+	<rdf:type rdf:resource="http://test_jk/b-and-b/Women"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://test_jk/b-and-b/Eric">
+	<rdf:type rdf:resource="http://test_jk/b-and-b/Men"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://test_jk/b-and-b/Stephanie">
+	<has_sex xmlns="http://test_jk/b-and-b/">woman</has_sex>
+	<fhkb:isMotherOf rdf:resource="http://test_jk/b-and-b/Thorn"/>
+	<fhkb:isMotherOf rdf:resource="http://test_jk/b-and-b/Ridge"/>
+	<fhkb:hasHusband rdf:resource="http://test_jk/b-and-b/Eric"/>
+	<dcterms:title>boss</dcterms:title>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://test_jk/b-and-b/Thorn">
+	<fhkb:hasWife rdf:resource="http://test_jk/b-and-b/Brook"/>
+	<fhkb:isBrotherOf rdf:resource="http://test_jk/b-and-b/Ridge"/>
+	<is_years_old xmlns="http://test_jk/b-and-b/" rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">40</is_years_old>
+	<foaf:phone rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">777666888</foaf:phone>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://test_jk/b-and-b/Ridge">
+	<has_sex xmlns="http://test_jk/b-and-b/">man</has_sex>
+	<dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1960-05-01</dc:date>
+	<rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://pl.wikipedia.org/wiki/Ridge_Forrester</rdfs:seeAlso>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://test_jk/b-and-b/Brook">
+	<fhkb:hasRelation rdf:resource="http://test_jk/b-and-b/Eric"/>
+	<fhkb:hasHusband rdf:resource="http://test_jk/b-and-b/Ridge"/>
+	<foaf:knows rdf:resource="http://test_jk/b-and-b/Stephanie"/>
+	<rdfs:label>aaa</rdfs:label>
+	<rdfs:comment>has a lot of husbands :)</rdfs:comment>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://test_jk/b-and-b/Eric">
+	<fhkb:isFatherOf rdf:resource="http://test_jk/b-and-b/Thorn"/>
+	<has_sex xmlns="http://test_jk/b-and-b/">man</has_sex>
+	<foaf:profession>designer</foaf:profession>
+	<rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://en.wikipedia.org/wiki/Eric_Forrester</rdfs:isDefinedBy>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://test_jk/b-and-b/has_sex">
+	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Property"/>
+	<rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/person"/>
+	<rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://test_jk/b-and-b/is_years_old">
+	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Property"/>
+	<rdfs:subPropertyOf rdf:resource="http://xmlns.com/foaf/0.1/age"/>
+	<rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+	<rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+</rdf:Description>
+
+</rdf:RDF>
