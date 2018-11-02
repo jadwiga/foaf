@@ -1,0 +1,11 @@
+PREFIX fhkb: <http://www.example.com/genealogy.owl#>
+PREFIX my: <http://www.example.com/genealogy.owl#>
+
+CONSTRUCT {
+  ?person1 my:is_sibling_of ?person2 .
+}
+WHERE {
+  { ?person1 fhkb:isBrotherOf ?person2 }
+  UNION
+  { ?person1 fhkb:isSisterOf ?person2 }
+}
