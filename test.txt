@@ -1,5 +1,5 @@
 PREFIX fhkb: <http://www.example.com/genealogy.owl#>
-PREFIX my: <http://www.example.com/genealogy.owl#>
+PREFIX my: <http://new/b-and-b#>
 
 CONSTRUCT {
   ?person1 my:is_sibling_of ?person2 .
